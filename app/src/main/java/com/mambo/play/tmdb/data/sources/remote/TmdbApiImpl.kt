@@ -17,7 +17,7 @@ class TmdbApiImpl(private val client: HttpClient) : TmdbApi {
         headers {
             header(
                 "Authorization",
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMWIzMmIyZDc3ZDlmMWE1OTViOGFiMDViNzk5YjgzNiIsInN1YiI6IjY1MjlhMGQ0ZjI4ODM4MDJhMzI3MDI0NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7a4jQN3t3jWgAoGBitzrgn6J3g8C3R0lEzC7kT09CKE"
+                "Bearer get your own key"
             )
         }
     }

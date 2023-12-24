@@ -9,6 +9,8 @@ package com.mambo.play.tmdb.domain.models
  */
 sealed interface DataResult<out T> {
 
+    data object Loading: DataResult<Nothing>
+
     data object Empty : DataResult<Nothing>
 
     data class Failure(val message: String) : DataResult<Nothing>

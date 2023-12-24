@@ -7,16 +7,19 @@ import com.mambo.play.tmdb.data.sources.remote.helpers.NetworkResult
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.*
 import java.io.IOException
 
 class TmdbApiImpl(private val client: HttpClient) : TmdbApi {
 
     private fun HttpRequestBuilder.addApiKey() {
-        headersOf(
-            "Authorization",
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMWIzMmIyZDc3ZDlmMWE1OTViOGFiMDViNzk5YjgzNiIsInN1YiI6IjY1MjlhMGQ0ZjI4ODM4MDJhMzI3MDI0NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7a4jQN3t3jWgAoGBitzrgn6J3g8C3R0lEzC7kT09CKE"
-        )
+        headers {
+            header(
+                "Authorization",
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMWIzMmIyZDc3ZDlmMWE1OTViOGFiMDViNzk5YjgzNiIsInN1YiI6IjY1MjlhMGQ0ZjI4ODM4MDJhMzI3MDI0NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7a4jQN3t3jWgAoGBitzrgn6J3g8C3R0lEzC7kT09CKE"
+            )
+        }
     }
 
     data class Query(val name: String, val value: String)
@@ -53,6 +56,7 @@ class TmdbApiImpl(private val client: HttpClient) : TmdbApi {
                     )
                 )
             }
+            println(response.bodyAsText())
             response.body()
         }
 

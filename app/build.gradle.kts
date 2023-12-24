@@ -86,4 +86,7 @@ dependencies {
 
     // voyager
     implementation(libs.bundles.voyager)
+
+    // coil
+    implementation(libs.bundles.coil)
 }

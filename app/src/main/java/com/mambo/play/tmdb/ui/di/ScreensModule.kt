@@ -1,7 +1,9 @@
-package com.mambo.play.tmdb.ui.screens.landing
+package com.mambo.play.tmdb.ui.di
 
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.hilt.ScreenModelKey
+import com.mambo.play.tmdb.ui.screens.landing.LandingScreenModel
+import com.mambo.play.tmdb.ui.screens.movies.MoviesScreenModel
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,16 +15,21 @@ import dagger.multibindings.IntoMap
  * @author  : mambo
  * @email   : mambobryan@gmail.com
  * @date    : Sun 24 December 2023
- * @time    : 11:58 am
+ * @time    : 12:16 pm
  */
-
 @Module
 @InstallIn(ActivityComponent::class)
-abstract class LandingScreenDI {
+abstract class ScreensModule {
+
+    @Binds
+    @IntoMap
+    @ScreenModelKey(MoviesScreenModel::class)
+    abstract fun bindMoviesScreenModel(screenModel: MoviesScreenModel): ScreenModel
 
     @Binds
     @IntoMap
     @ScreenModelKey(LandingScreenModel::class)
-    abstract fun bind(screenModel: LandingScreenModel): ScreenModel
+    abstract fun bindLandingScreenModel(screenModel: LandingScreenModel): ScreenModel
+
 
 }

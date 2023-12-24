@@ -1,8 +1,9 @@
-package com.mambo.play.tmdb.ui.screens.movies
+package com.mambo.play.tmdb.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -44,7 +47,9 @@ fun MovieItem(item: MovieDomain, modifier: Modifier = Modifier, onClick: () -> U
                 .background(Color.White)
         ) {
             Text(
-                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
                 text = item.title,
                 color = Color.Black,
                 maxLines = 1
@@ -59,20 +64,27 @@ fun MovieItem(item: MovieDomain, modifier: Modifier = Modifier, onClick: () -> U
                     .build(),
                 contentDescription = "movie image",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize().height(400.dp)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .height(500.dp)
             )
+
+            Column(
+                modifier = Modifier.background(Color.White.copy(0.7f)).padding(16.dp).align(Alignment.BottomCenter)
+            ) {
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                    ,
+                    text = item.overview,
+                    color = Color.Black,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Text(text = "read more", color = Color.Blue)
+            }
         }
 
-        Row(
-            modifier = Modifier
-                .background(Color.White)
-        ) {
-            Text(
-                modifier = Modifier.fillMaxWidth().padding(16.dp),
-                text = item.overview,
-                color = Color.Black,
-                maxLines = 3
-            )
-        }
+
     }
 }

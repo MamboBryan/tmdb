@@ -11,7 +11,8 @@ import com.mambo.play.tmdb.domain.models.MovieDomain
  * @time    : 10:59 am
  */
 
-fun MovieDTO.toDomain() = MovieDomain(title = title, image = posterPath, overview = overview)
+fun MovieDTO.toDomain() =
+    MovieDomain(title = title, image = posterPath, backdrop = backdropPath, overview = overview)
 
 // to DOMAIN
 

@@ -3,6 +3,7 @@ package com.mambo.play.tmdb.ui.di
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.hilt.ScreenModelKey
 import com.mambo.play.tmdb.ui.screens.landing.LandingScreenModel
+import com.mambo.play.tmdb.ui.screens.moviedetail.MovieDetailScreenModel
 import com.mambo.play.tmdb.ui.screens.movies.MoviesScreenModel
 import dagger.Binds
 import dagger.Module
@@ -24,12 +25,16 @@ abstract class ScreensModule {
     @Binds
     @IntoMap
     @ScreenModelKey(MoviesScreenModel::class)
-    abstract fun bindMoviesScreenModel(screenModel: MoviesScreenModel): ScreenModel
+    abstract fun bindMovies(screenModel: MoviesScreenModel): ScreenModel
 
     @Binds
     @IntoMap
     @ScreenModelKey(LandingScreenModel::class)
-    abstract fun bindLandingScreenModel(screenModel: LandingScreenModel): ScreenModel
+    abstract fun bindLanding(screenModel: LandingScreenModel): ScreenModel
 
+    @Binds
+    @IntoMap
+    @ScreenModelKey(MovieDetailScreenModel::class)
+    abstract fun bindMovieDetail(screenModel: MovieDetailScreenModel): ScreenModel
 
 }

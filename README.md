@@ -1,7 +1,7 @@
-# Nekos
-This is a sample project of how to load stuff from an API and show with compose
+# TMDB
+This is a sample project of how to load movies from the TMDB API
 
 ## Features
-- fetch a simple list of characters with their title and images
+- fetch a simple list of movies and display them on a screen
 
 ## What is Used

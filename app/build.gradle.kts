@@ -2,6 +2,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlin.serialization)
+    id("kotlin-kapt")
+    alias(libs.plugins.android.hilt)
 }
 
 android {
@@ -67,4 +70,20 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    // coroutines
+    implementation(libs.kotlinx.coroutines)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    // ktor
+    implementation(libs.bundles.ktor)
+    testImplementation(libs.ktor.client.mock)
+
+    // hilt
+    implementation(libs.androidx.hilt)
+    testImplementation(libs.androidx.hilt.testing)
+    kapt(libs.androidx.hilt.compiler)
+
+    // voyager
+    implementation(libs.bundles.voyager)
 }
